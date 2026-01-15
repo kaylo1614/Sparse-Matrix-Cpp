@@ -4,7 +4,7 @@
 
 This project presents a robust implementation of Sparse Matrix operations, specifically focusing on **matrix addition** and **multiplication**.
 
-本專案實作了一個穩健的稀疏矩陣運算系統，特別著重於 **矩陣加法** 與 **矩陣乘法** 的功能。
+本專案實作了一個穩健的稀疏矩陣運算系統，特別著重於 **矩陣乘法** 的功能。
 
 ### Why Linked Lists? (為何選擇鏈結串列？)
 
