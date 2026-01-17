@@ -137,8 +137,25 @@ int main()
 	return 0;
 }
 
+// [修正後] 正確的解構子：遍歷整個矩陣釋放記憶體
 linkMatrix::~linkMatrix() {
-	delete first;
+    linknode* rowHead = first;
+    
+    while (rowHead != nullptr) {
+        linknode* currentRowNode = rowHead;       // 鎖定這一列的開頭
+        linknode* nextRowHead = rowHead->downlink; // 先記住下一列在哪裡，以免刪了找不到路
+
+        // 水平遍歷：刪除這一列的所有節點
+        while (currentRowNode != nullptr) {
+            linknode* temp = currentRowNode;
+            currentRowNode = currentRowNode->rightlink; // 往右移動
+            delete temp; // 釋放當前節點
+        }
+
+        // 往下移動到下一列
+        rowHead = nextRowHead;
+    }
+    // cout << "[System] Memory safely released." << endl; 
 }
 
 void linkMatrix::createMatrix() {
